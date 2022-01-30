@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
-function App() {
-  return (
+class App extends React.Component {
+  state = {
+    imgSrc: "./public\gbemiYoloye.jpg",
+    fullName: "Oluwagbemi Yoloye",
+    profession: "Football Coach",
+    bio: "Learned Full Stack JS at GoMyCode",
+    shows: true
+  }
+  
+  handleToggle = () => this.setState({shows:false})
+  
+  render () {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <button onClick = {this.handleToggle}><input type="checkbox"/></button>
+        {this.state.shows}
+      </div>
+      <div>{this.state.imgSrc}</div>
+      <h1>{this.state.fullName}</h1>
+      <h2>{this.state.profession}</h2>
+      <h3>{this.state.bio}</h3>
     </div>
-  );
-}
-
+  )
+ }
+};
 export default App;
